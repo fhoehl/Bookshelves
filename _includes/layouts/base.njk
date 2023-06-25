@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/bundle.css">
+  </head>
+  <body class="bg-stone-200">
+    {% include 'layouts/nav.njk' %}
+    <div class="bg-stone-200 flex 0flex-wrap">
+      {% include 'layouts/sidebar.njk' %}
+      <div class="max-w-4xl mx-auto pt-8 basis-full grow">
+      {{ content | safe }}
+      </div>
+    </div>
+  </body>
+</html>

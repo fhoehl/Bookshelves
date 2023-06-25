@@ -1,0 +1,10 @@
+---
+permalink: bundle.css
+---
+{% set css %}
+{% include "_styles/tailwind.css" %}
+{% endset %}
+
+{{css | postcss | safe}}
+
+{% include "_styles/bookshelf.css" %}

@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: {{ config.libraryName }}
+---
+
+<div class="bookshelf">
+    <div class="grid grid-cols-4 md:grid-cols-6">
+      {%- for post in collections.read -%}
+        <a href="{{ post.url }}" class="hover:bg-blue-600 hover:text-slate-50 no-underline col-span-1">
+          <div class="col-span-1 border-b-8 border-slate-300 p-4 h-full">
+            {% if post.data.goodreads > 0 %}
+              <img src="https://covers.openlibrary.org/b/goodreads/{{ post.data.goodreads }}-L.jpg" />
+            {% elsif post.data.isbn.length > 0 %}
+              <div class="h-48 flex flex-col justify-end items-start">
+                <img src="https://covers.openlibrary.org/b/isbn/{{ post.data.isbn }}-L.jpg" class="object-contain" />
+              </div>
+            {% else %}
+              <div class="h-48 w-full flex justify-center items-center font-serif font-black text-xl border border-blue-400">
+                {{ post.data.title[0] }}
+              </div>
+            {% endif %}
+            <h2 class="font-serif mt-4 text-sm line-clamp-3">{{ post.data.title }}</h2>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+</div>
